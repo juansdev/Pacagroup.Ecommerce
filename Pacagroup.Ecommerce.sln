@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pacagroup.Ecommerce.Domain.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pacagroup.Ecommerce.Infrastructure.Repository", "Pacagroup.Ecommerce.Infrastructure.Repository\Pacagroup.Ecommerce.Infrastructure.Repository.csproj", "{5A8550EB-CDC6-40A7-BEA3-8BB14EDDB3FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pacagroup.Ecommerce.Domain.Interface", "Pacagroup.Ecommerce.Domain.Interface\Pacagroup.Ecommerce.Domain.Interface.csproj", "{54553B79-1FCB-4735-A87B-678E4816EE79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pacagroup.Ecommerce.Domain.Core", "Pacagroup.Ecommerce.Domain.Core\Pacagroup.Ecommerce.Domain.Core.csproj", "{B1208318-FEDC-4156-81EC-287805C4F1A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +53,14 @@ Global
 		{5A8550EB-CDC6-40A7-BEA3-8BB14EDDB3FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A8550EB-CDC6-40A7-BEA3-8BB14EDDB3FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A8550EB-CDC6-40A7-BEA3-8BB14EDDB3FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54553B79-1FCB-4735-A87B-678E4816EE79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54553B79-1FCB-4735-A87B-678E4816EE79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54553B79-1FCB-4735-A87B-678E4816EE79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54553B79-1FCB-4735-A87B-678E4816EE79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1208318-FEDC-4156-81EC-287805C4F1A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1208318-FEDC-4156-81EC-287805C4F1A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1208318-FEDC-4156-81EC-287805C4F1A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1208318-FEDC-4156-81EC-287805C4F1A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +71,8 @@ Global
 		{AA56B8BC-5296-4739-9BA4-C0778AA21C07} = {00288B39-D73E-4520-9F27-BC58A74529FC}
 		{427D67CC-7954-44BC-91F3-4C014F470F3E} = {018B00F0-58A1-4DC6-A408-1398F3931189}
 		{5A8550EB-CDC6-40A7-BEA3-8BB14EDDB3FE} = {00288B39-D73E-4520-9F27-BC58A74529FC}
+		{54553B79-1FCB-4735-A87B-678E4816EE79} = {018B00F0-58A1-4DC6-A408-1398F3931189}
+		{B1208318-FEDC-4156-81EC-287805C4F1A2} = {018B00F0-58A1-4DC6-A408-1398F3931189}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AA06738B-0BCA-4098-85D0-B5C7C00BAD56}
