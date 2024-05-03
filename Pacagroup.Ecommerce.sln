@@ -27,6 +27,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pacagroup.Ecommerce.Domain.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pacagroup.Ecommerce.Domain.Core", "Pacagroup.Ecommerce.Domain.Core\Pacagroup.Ecommerce.Domain.Core.csproj", "{B1208318-FEDC-4156-81EC-287805C4F1A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pacagroup.Ecommerce.Application.DTO", "Pacagroup.Ecommerce.Application.DTO\Pacagroup.Ecommerce.Application.DTO.csproj", "{24E1F6C6-4C3D-4E39-BBCF-C9C552A4C6D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pacagroup.Ecommerce.CrossSectional.Mapper", "Pacagroup.Ecommerce.CrossSectional.Mapper\Pacagroup.Ecommerce.CrossSectional.Mapper.csproj", "{524176A7-1D6D-4EEE-BA49-E4600DCCC8B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pacagroup.Ecommerce.Application.Interface", "Pacagroup.Ecommerce.Application.Interface\Pacagroup.Ecommerce.Application.Interface.csproj", "{F2067806-2463-4B57-BABA-C6D854102691}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pacagroup.Ecommerce.Application.Main", "Pacagroup.Ecommerce.Application.Main\Pacagroup.Ecommerce.Application.Main.csproj", "{5EBB90C9-3DB2-4ABA-80DE-8A57773DB93A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +69,22 @@ Global
 		{B1208318-FEDC-4156-81EC-287805C4F1A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1208318-FEDC-4156-81EC-287805C4F1A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1208318-FEDC-4156-81EC-287805C4F1A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24E1F6C6-4C3D-4E39-BBCF-C9C552A4C6D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24E1F6C6-4C3D-4E39-BBCF-C9C552A4C6D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24E1F6C6-4C3D-4E39-BBCF-C9C552A4C6D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24E1F6C6-4C3D-4E39-BBCF-C9C552A4C6D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{524176A7-1D6D-4EEE-BA49-E4600DCCC8B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{524176A7-1D6D-4EEE-BA49-E4600DCCC8B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{524176A7-1D6D-4EEE-BA49-E4600DCCC8B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{524176A7-1D6D-4EEE-BA49-E4600DCCC8B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2067806-2463-4B57-BABA-C6D854102691}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2067806-2463-4B57-BABA-C6D854102691}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2067806-2463-4B57-BABA-C6D854102691}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2067806-2463-4B57-BABA-C6D854102691}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EBB90C9-3DB2-4ABA-80DE-8A57773DB93A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EBB90C9-3DB2-4ABA-80DE-8A57773DB93A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EBB90C9-3DB2-4ABA-80DE-8A57773DB93A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EBB90C9-3DB2-4ABA-80DE-8A57773DB93A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +97,10 @@ Global
 		{5A8550EB-CDC6-40A7-BEA3-8BB14EDDB3FE} = {00288B39-D73E-4520-9F27-BC58A74529FC}
 		{54553B79-1FCB-4735-A87B-678E4816EE79} = {018B00F0-58A1-4DC6-A408-1398F3931189}
 		{B1208318-FEDC-4156-81EC-287805C4F1A2} = {018B00F0-58A1-4DC6-A408-1398F3931189}
+		{24E1F6C6-4C3D-4E39-BBCF-C9C552A4C6D3} = {D5E81D20-8EB3-41EB-B450-5D5525A40AE0}
+		{524176A7-1D6D-4EEE-BA49-E4600DCCC8B7} = {70ABC1D3-936C-439C-ADAC-32D8D56B358A}
+		{F2067806-2463-4B57-BABA-C6D854102691} = {D5E81D20-8EB3-41EB-B450-5D5525A40AE0}
+		{5EBB90C9-3DB2-4ABA-80DE-8A57773DB93A} = {D5E81D20-8EB3-41EB-B450-5D5525A40AE0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AA06738B-0BCA-4098-85D0-B5C7C00BAD56}
