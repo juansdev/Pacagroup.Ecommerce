@@ -9,6 +9,7 @@ namespace Pacagroup.Ecommerce.CrossSectional.Mapper
         public MapppingsProfile()
         {
             CreateMap<Customers, CustomersDto>().ReverseMap();
+            CreateMap<Users, UsersDto>().ReverseMap();
         }
     }
 }
