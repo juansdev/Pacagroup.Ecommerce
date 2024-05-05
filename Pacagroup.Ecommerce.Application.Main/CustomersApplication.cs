@@ -47,7 +47,7 @@ namespace Pacagroup.Ecommerce.Application.Main
                 if (response.Data != null)
                 {
                     response.IsSuccess = true;
-                    response.Message = "¡Eliminación Exitosa!";
+                    response.Message = "¡Obtención Exitosa!";
                 }
             }
             catch (Exception ex)
@@ -67,7 +67,7 @@ namespace Pacagroup.Ecommerce.Application.Main
                 if (response.Data != null)
                 {
                     response.IsSuccess = true;
-                    response.Message = "¡Eliminación Exitosa!";
+                    response.Message = "¡Obtención Exitosa!";
                 }
             }
             catch (Exception ex)
@@ -147,7 +147,7 @@ namespace Pacagroup.Ecommerce.Application.Main
                 if (response.Data != null)
                 {
                     response.IsSuccess = true;
-                    response.Message = "¡Eliminación Exitosa!";
+                    response.Message = "¡Obtención Exitosa!";
                 }
             }
             catch (Exception ex)
@@ -167,7 +167,7 @@ namespace Pacagroup.Ecommerce.Application.Main
                 if (response.Data != null)
                 {
                     response.IsSuccess = true;
-                    response.Message = "¡Eliminación Exitosa!";
+                    response.Message = "¡Obtención Exitosa!";
                 }
             }
             catch (Exception ex)
