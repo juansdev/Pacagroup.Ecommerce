@@ -11,6 +11,7 @@ using Pacagroup.Ecommerce.Infrastructure.Interface;
 using Pacagroup.Ecommerce.Infrastructure.Repository;
 using Pacagroup.Ecommerce.Infrastruture.Data;
 using Pacagroup.Ecommerce.Services.WebApi.Helpers;
+using Pacagroup.Ecommerce.Transversal.Logging;
 using System.Text;
 
 namespace Pacagroup.Ecommerce.Services.WebApi
@@ -52,6 +53,7 @@ namespace Pacagroup.Ecommerce.Services.WebApi
             services.AddScoped<IUsersApplication, UsersApplication>();
             services.AddScoped<IUsersDomain, UsersDomain>();
             services.AddScoped<IUsersRepository, UsersRepository>();
+            services.AddScoped(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
 
             var key = Encoding.ASCII.GetBytes(appSettings.Secret);
             var Issuer = appSettings.Issuer;
