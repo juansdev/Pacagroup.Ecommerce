@@ -1,4 +1,6 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using Microsoft.Extensions.Options;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Pacagroup.Ecommerce.Services.WebApi.Modules.Swagger
 {
@@ -6,25 +8,9 @@ namespace Pacagroup.Ecommerce.Services.WebApi.Modules.Swagger
     {
         public static IServiceCollection AddSwagger(this IServiceCollection services)
         {
+            services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo
-                {
-                    Version = "v1",
-                    Title = "Pacagroup Technology Services API Market",
-                    Description = "A simple example ASP.NET Core Web API",
-                    Contact = new OpenApiContact
-                    {
-                        Name = "Alex Espejo",
-                        Email = "alex.espejo.c@gmail.com",
-                        Url = new Uri("https://pacagroup.com")
-                    },
-                    License = new OpenApiLicense
-                    {
-                        Name = "Use under LICX",
-                        Url = new Uri("https://example.com/license")
-                    }
-                });
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = "JWT Authorization header using the Bearer scheme",

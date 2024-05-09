@@ -2,12 +2,14 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Pacagroup.Ecommerce.Application.DTO;
 using Pacagroup.Ecommerce.Application.Interface;
+using Pacagroup.Ecommerce.Domain.Entity;
 
-namespace Pacagroup.Ecommerce.Services.WebApi.Controllers
+namespace Pacagroup.Ecommerce.Services.WebApi.Controllers.v2
 {
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
+    [ApiVersion("2.0")]
     public class CustomersController : Controller
     {
         private readonly ICustomersApplication _customersApplication;
@@ -19,24 +21,23 @@ namespace Pacagroup.Ecommerce.Services.WebApi.Controllers
         #region Sync Methods
 
         [HttpPost("Insert")]
-        public IActionResult Insert(CustomersDto customersDto)
-        {
-            if(customersDto == null)
-            {
-                return BadRequest();
-            }
-            var response = _customersApplication.Insert(customersDto);
-            if(response.IsSuccess) return Ok(response);
-            return BadRequest(response.Message);
-        }
-
-        [HttpPut("Update")]
-        public IActionResult Update(CustomersDto customersDto)
+        public IActionResult Insert([FromBody] CustomersDto customersDto)
         {
             if (customersDto == null)
             {
                 return BadRequest();
             }
+            var response = _customersApplication.Insert(customersDto);
+            if (response.IsSuccess) return Ok(response);
+            return BadRequest(response.Message);
+        }
+
+        [HttpPut("Update/{customerId}")]
+        public IActionResult Update(string customerId, [FromBody] CustomersDto customersDto)
+        {
+            var customerDto = _customersApplication.Get(customerId);
+            if (customerDto.Data == null) return NotFound(customerDto.Message);
+            if (customersDto == null) return BadRequest();
             var response = _customersApplication.Update(customersDto);
             if (response.IsSuccess) return Ok(response);
             return BadRequest(response.Message);
@@ -76,7 +77,7 @@ namespace Pacagroup.Ecommerce.Services.WebApi.Controllers
 
         #endregion
 
-        #region
+        #region Async Methods
 
         [HttpPost("InsertAsync")]
         public async Task<IActionResult> InsertAsync(CustomersDto customersDto)
@@ -90,13 +91,12 @@ namespace Pacagroup.Ecommerce.Services.WebApi.Controllers
             return BadRequest(response.Message);
         }
 
-        [HttpPut("UpdateAsync")]
-        public async Task<IActionResult> UpdateAsync(CustomersDto customersDto)
+        [HttpPut("UpdateAsync/{customerId}")]
+        public async Task<IActionResult> UpdateAsync(string customerId, [FromBody]CustomersDto customersDto)
         {
-            if (customersDto == null)
-            {
-                return BadRequest();
-            }
+            var customerDto = _customersApplication.Get(customerId);
+            if (customerDto.Data == null) return NotFound(customerDto.Message);
+            if (customersDto == null) return BadRequest();
             var response = await _customersApplication.UpdateAsync(customersDto);
             if (response.IsSuccess) return Ok(response);
             return BadRequest(response.Message);
