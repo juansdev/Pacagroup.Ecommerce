@@ -3,6 +3,7 @@ using Pacagroup.Ecommerce.Services.WebApi.Modules.Feature;
 using Pacagroup.Ecommerce.Services.WebApi.Modules.Injection;
 using Pacagroup.Ecommerce.Services.WebApi.Modules.Mapper;
 using Pacagroup.Ecommerce.Services.WebApi.Modules.Swagger;
+using Pacagroup.Ecommerce.Services.WebApi.Modules.Validator;
 
 namespace Pacagroup.Ecommerce.Services.WebApi
 {
@@ -21,6 +22,7 @@ namespace Pacagroup.Ecommerce.Services.WebApi
             services.AddInjection(Configuration);
             services.AddAuthentications(Configuration);
             services.AddSwagger();
+            services.AddValidator();
         }
 
         public void Configure(WebApplication app, IWebHostEnvironment env)

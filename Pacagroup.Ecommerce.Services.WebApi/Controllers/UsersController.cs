@@ -38,7 +38,7 @@ namespace Pacagroup.Ecommerce.Services.WebApi.Controllers
                 }
                 return NotFound(response.Message);
             }
-            return BadRequest(response.Message);
+            return BadRequest(response);
         }
 
         private string BuildToken(string userId)
