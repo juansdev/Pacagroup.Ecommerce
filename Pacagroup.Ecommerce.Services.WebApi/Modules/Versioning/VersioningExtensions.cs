@@ -10,11 +10,12 @@ namespace Pacagroup.Ecommerce.Services.WebApi.Modules.Versioning
                 o.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
                 o.AssumeDefaultVersionWhenUnspecified = true;
                 o.ReportApiVersions = true;
-                o.ApiVersionReader = new HeaderApiVersionReader("x-version");
+                o.ApiVersionReader = new UrlSegmentApiVersionReader();
             });
             services.AddVersionedApiExplorer(o =>
             {
                 o.GroupNameFormat = "'v'VVV";
+                o.SubstituteApiVersionInUrl = true;
             });
             return services;
         }

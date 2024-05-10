@@ -16,7 +16,7 @@ namespace Pacagroup.Ecommerce.Services.WebApi.Modules.Swagger
             {
                 Version = description.ApiVersion.ToString(),
                 Title = "Pacagroup Technology Services API Market",
-                Description = "A simple example ASP.NET Core Web API",
+                Description = "A simple example ASP.NET Core Web API.",
                 Contact = new OpenApiContact
                 {
                     Name = "Alex Espejo",
@@ -29,6 +29,10 @@ namespace Pacagroup.Ecommerce.Services.WebApi.Modules.Swagger
                     Url = new Uri("https://example.com/license")
                 }
             };
+            if (description.IsDeprecated)
+            {
+                info.Description += " Esta versión de la API ha quedado obsoleta.";
+            }
             return info;
         }
         public void Configure(SwaggerGenOptions options)

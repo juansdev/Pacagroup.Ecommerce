@@ -7,8 +7,8 @@ namespace Pacagroup.Ecommerce.Services.WebApi.Controllers.v1
 {
     [Authorize]
     [ApiController]
-    [Route("api/[controller]")]
-    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
+    [ApiVersion("1.0", Deprecated = true)]
     public class CustomersController : Controller
     {
         private readonly ICustomersApplication _customersApplication;
