@@ -127,6 +127,32 @@ namespace Pacagroup.Ecommerce.Application.Main
             return response;
         }
 
+        public ResponsePagination<IEnumerable<CustomersDto>> GetAllWithPagination(int pageNumber, int pageSize)
+        {
+            var response = new ResponsePagination<IEnumerable<CustomersDto>>();
+            try
+            {
+                var count = _customersDomain.Count();
+                var customers = _customersDomain.GetAllWithPagination(pageNumber, pageSize);
+                response.Data = _mapper.Map<IEnumerable<CustomersDto>>(customers);
+                if (response.Data != null)
+                {
+                    response.PageNumber = pageNumber;
+                    response.TotalPages = (int)Math.Ceiling(count / (double)pageSize);
+                    response.TotalCount = count;
+                    response.IsSuccess = true;
+                    response.Message = "¡Obtención Paginada Exitosa!";
+                    _logger.LogInformation(response.Message);
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Message = ex.Message;
+                _logger.LogError(response.Message);
+            }
+            return response;
+        }
+
         #endregion
 
         #region Async Methods
@@ -228,6 +254,32 @@ namespace Pacagroup.Ecommerce.Application.Main
                 {
                     response.IsSuccess = true;
                     response.Message = "¡Actualización Exitosa!";
+                    _logger.LogInformation(response.Message);
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Message = ex.Message;
+                _logger.LogError(response.Message);
+            }
+            return response;
+        }
+
+        public async Task<ResponsePagination<IEnumerable<CustomersDto>>> GetAllWithPaginationAsync(int pageNumber, int pageSize)
+        {
+            var response = new ResponsePagination<IEnumerable<CustomersDto>>();
+            try
+            {
+                var count = await _customersDomain.CountAsync();
+                var customers = await _customersDomain.GetAllWithPaginationAsync(pageNumber, pageSize);
+                response.Data = _mapper.Map<IEnumerable<CustomersDto>>(customers);
+                if (response.Data != null)
+                {
+                    response.PageNumber = pageNumber;
+                    response.TotalPages = (int)Math.Ceiling(count / (double)pageSize);
+                    response.TotalCount = count;
+                    response.IsSuccess = true;
+                    response.Message = "¡Obtención Paginada Exitosa!";
                     _logger.LogInformation(response.Message);
                 }
             }
