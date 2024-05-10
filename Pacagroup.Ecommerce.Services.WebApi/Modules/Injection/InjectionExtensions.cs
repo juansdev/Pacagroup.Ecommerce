@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Pacagroup.Ecommerce.Application.Interface;
+﻿using Pacagroup.Ecommerce.Application.Interface;
 using Pacagroup.Ecommerce.Application.Main;
 using Pacagroup.Ecommerce.CrossSectional.Common;
 using Pacagroup.Ecommerce.Domain.Core;
@@ -16,7 +15,7 @@ namespace Pacagroup.Ecommerce.Services.WebApi.Modules.Injection
         public static IServiceCollection AddInjection(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddSingleton(configuration);
-            services.AddSingleton<IConnectionFactory, ConnectionFactory>();
+            services.AddSingleton<DapperContext>();
             services.AddScoped<ICustomersApplication, CustomersApplication>();
             services.AddScoped<ICustomersDomain, CustomersDomain>();
             services.AddScoped<ICustomersRepository, CustomersRepository>();
@@ -24,6 +23,7 @@ namespace Pacagroup.Ecommerce.Services.WebApi.Modules.Injection
             services.AddScoped<IUsersDomain, UsersDomain>();
             services.AddScoped<IUsersRepository, UsersRepository>();
             services.AddScoped(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             return services;
         }
     }
