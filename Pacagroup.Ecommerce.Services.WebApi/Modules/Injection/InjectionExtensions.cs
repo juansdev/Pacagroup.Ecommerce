@@ -1,12 +1,12 @@
 ﻿using Pacagroup.Ecommerce.Application.Interface;
 using Pacagroup.Ecommerce.Application.Main;
 using Pacagroup.Ecommerce.CrossSectional.Common;
+using Pacagroup.Ecommerce.CrossSectional.Logging;
 using Pacagroup.Ecommerce.Domain.Core;
 using Pacagroup.Ecommerce.Domain.Interface;
 using Pacagroup.Ecommerce.Infrastructure.Interface;
 using Pacagroup.Ecommerce.Infrastructure.Repository;
 using Pacagroup.Ecommerce.Infrastruture.Data;
-using Pacagroup.Ecommerce.Transversal.Logging;
 
 namespace Pacagroup.Ecommerce.Services.WebApi.Modules.Injection
 {
