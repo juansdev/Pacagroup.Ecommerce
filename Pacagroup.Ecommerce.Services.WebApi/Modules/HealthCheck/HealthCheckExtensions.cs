@@ -7,7 +7,10 @@
             services.AddHealthChecks()
                 .AddSqlServer(configuration.GetConnectionString("NorthwindConnection"), tags: new[] { "database" })
                 .AddCheck<HealthCheckCustom>("HealthCheckCustom", tags: new[] { "custom" });
-            services.AddHealthChecksUI().AddInMemoryStorage();
+            services.AddHealthChecksUI(settings =>
+            {
+                settings.AddHealthCheckEndpoint("Pacagroup.Ecommerce Health Status", "http://localhost/health-status");
+            }).AddInMemoryStorage();
             return services;
         }
     }
