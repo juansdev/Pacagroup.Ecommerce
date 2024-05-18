@@ -6,10 +6,11 @@
         {
             services.AddHealthChecks()
                 .AddSqlServer(configuration.GetConnectionString("NorthwindConnection"), tags: new[] { "database" })
+                .AddRedis(configuration.GetConnectionString("RedisConnection"), tags: new[] { "cache" })
                 .AddCheck<HealthCheckCustom>("HealthCheckCustom", tags: new[] { "custom" });
             services.AddHealthChecksUI(settings =>
             {
-                settings.AddHealthCheckEndpoint("Pacagroup.Ecommerce Health Status", configuration["Config:ApiHost"]+"/health-status");
+                settings.AddHealthCheckEndpoint("Pacagroup.Ecommerce Health Status - Production", configuration["Config:ApiHost"]+"/health-status");
             }).AddInMemoryStorage();
             return services;
         }
