@@ -3,8 +3,8 @@ using Pacagroup.Ecommerce.CrossSectional.Common;
 
 namespace Pacagroup.Ecommerce.Application.Interface
 {
-    public interface IUsersApplication
+    public interface ICategoriesApplication
     {
-        Response<UsersDto> Authenticate(string userName, string password);
+        Task<Response<IEnumerable<CategoriesDto>>> GetAll();
     }
 }

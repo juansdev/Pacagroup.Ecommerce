@@ -9,7 +9,7 @@
                 .AddCheck<HealthCheckCustom>("HealthCheckCustom", tags: new[] { "custom" });
             services.AddHealthChecksUI(settings =>
             {
-                settings.AddHealthCheckEndpoint("Pacagroup.Ecommerce Health Status", "http://localhost/health-status");
+                settings.AddHealthCheckEndpoint("Pacagroup.Ecommerce Health Status", configuration["Config:ApiHost"]+"/health-status");
             }).AddInMemoryStorage();
             return services;
         }

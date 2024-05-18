@@ -2,8 +2,8 @@
 
 namespace Pacagroup.Ecommerce.Domain.Interface
 {
-    public interface IUsersDomain
+    public interface ICategoriesDomain
     {
-        Users Authenticate(string userName, string password);
+        Task<IEnumerable<Categories>> GetAll();
     }
 }

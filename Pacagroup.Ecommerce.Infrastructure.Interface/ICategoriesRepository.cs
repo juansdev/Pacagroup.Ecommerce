@@ -2,8 +2,8 @@
 
 namespace Pacagroup.Ecommerce.Infrastructure.Interface
 {
-    public interface ICustomersRepository : IGenericRepository<Customers>
+    public interface ICategoriesRepository
     {
-         
+        Task<IEnumerable<Categories>> GetAll();
     }
 }

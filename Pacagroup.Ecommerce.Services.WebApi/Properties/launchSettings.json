@@ -37,6 +37,18 @@
       },
       "publishAllPorts": true,
       "useSSL": true
+    },
+    "WSL 2": {
+      "commandName": "WSL2",
+      "launchBrowser": true,
+      "launchUrl": "https://localhost:7036/swagger",
+      "workingDirectory": "/home/dragonx/Pacagroup.Ecommerce/Pacagroup.Ecommerce.Services.WebApi",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "https://localhost:7036;http://localhost:5229"
+      },
+      "distributionName": "",
+      "commandLineArgs": "bin/Debug/net7.0/Pacagroup.Ecommerce.Services.WebApi.dll"
     }
   },
   "$schema": "https://json.schemastore.org/launchsettings.json",
