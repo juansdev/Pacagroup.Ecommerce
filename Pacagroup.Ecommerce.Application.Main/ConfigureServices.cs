@@ -17,7 +17,7 @@ namespace Pacagroup.Ecommerce.Application.UseCases
             services.AddScoped<ICustomersApplication, CustomersApplication>();
             services.AddScoped<IUsersApplication, UsersApplication>();
             services.AddScoped<ICategoriesApplication, CategoriesApplication>();
-            services.AddScoped<IDiscountApplication, DiscountApplication>();
+            services.AddScoped<IDiscountsApplication, DiscountsApplication>();
 
             services.AddTransient<UsersDtoValidator>();
             services.AddTransient<DiscountDtoValidator>();

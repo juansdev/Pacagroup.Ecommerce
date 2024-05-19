@@ -8,13 +8,13 @@ using Pacagroup.Ecommerce.Domain.Entities;
 
 namespace Pacagroup.Ecommerce.Application.UseCases.Discounts
 {
-    public class DiscountApplication : IDiscountApplication
+    public class DiscountsApplication : IDiscountsApplication
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly DiscountDtoValidator _discountDtoValidator;
 
-        public DiscountApplication(IUnitOfWork unitOfWork, IMapper mapper, DiscountDtoValidator discountDtoValidator)
+        public DiscountsApplication(IUnitOfWork unitOfWork, IMapper mapper, DiscountDtoValidator discountDtoValidator)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;

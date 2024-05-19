@@ -3,7 +3,7 @@ using Pacagroup.Ecommerce.CrossSectional.Common;
 
 namespace Pacagroup.Ecommerce.Application.Interface.UseCases
 {
-    public interface IDiscountApplication
+    public interface IDiscountsApplication
     {
         Task<Response<bool>> Create(DiscountDto discountDto, CancellationToken cancellationToken = default);
         Task<Response<bool>> Update(DiscountDto discountDto, CancellationToken cancellationToken = default);

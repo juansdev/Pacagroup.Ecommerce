@@ -1,4 +1,6 @@
-﻿namespace Pacagroup.Ecommerce.Services.WebApi.Modules.Feature
+﻿using System.Text.Json.Serialization;
+
+namespace Pacagroup.Ecommerce.Services.WebApi.Modules.Feature
 {
     public static class FeatureExtensions
     {
@@ -14,7 +16,8 @@
             services.AddControllers()
                     .AddJsonOptions(options =>
                     {
-                        options.JsonSerializerOptions.PropertyNamingPolicy = null;
+                        var enumConverter = new JsonStringEnumConverter();
+                        options.JsonSerializerOptions.Converters.Add(enumConverter);
                     });
             return services;
         }
