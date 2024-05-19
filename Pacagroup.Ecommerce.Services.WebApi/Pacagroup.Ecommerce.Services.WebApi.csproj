@@ -33,7 +33,7 @@
     <ProjectReference Include="..\Pacagroup.Ecommerce.CrossSectional.Common\Pacagroup.Ecommerce.CrossSectional.Common.csproj" />
     <ProjectReference Include="..\Pacagroup.Ecommerce.CrossSectional.Logging\Pacagroup.Ecommerce.CrossSectional.Logging.csproj" />
     <ProjectReference Include="..\Pacagroup.Ecommerce.CrossSectional.Mapper\Pacagroup.Ecommerce.CrossSectional.Mapper.csproj" />
-    <ProjectReference Include="..\Pacagroup.Ecommerce.Domain.Entity\Pacagroup.Ecommerce.Domain.Entity.csproj" />
+    <ProjectReference Include="..\Pacagroup.Ecommerce.Domain.Entity\Pacagroup.Ecommerce.Domain.csproj" />
     <ProjectReference Include="..\Pacagroup.Ecommerce.Persistence.Repository\Pacagroup.Ecommerce.Persistence.csproj" />
   </ItemGroup>
 
