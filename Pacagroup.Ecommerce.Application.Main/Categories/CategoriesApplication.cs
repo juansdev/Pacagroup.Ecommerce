@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.Json;
 using Pacagroup.Ecommerce.Application.Interface.Persistence;
 
-namespace Pacagroup.Ecommerce.Application.UseCases
+namespace Pacagroup.Ecommerce.Application.UseCases.Categories
 {
     public class CategoriesApplication : ICategoriesApplication
     {
@@ -20,21 +20,21 @@ namespace Pacagroup.Ecommerce.Application.UseCases
             _mapper = mapper;
             _distributedCache = distributedCache;
         }
-        public async Task<Response<IEnumerable<CategoriesDto>>> GetAll()
+        public async Task<Response<IEnumerable<CategoryDto>>> GetAll()
         {
-            var response = new Response<IEnumerable<CategoriesDto>>();
+            var response = new Response<IEnumerable<CategoryDto>>();
             var cacheKey = "categoriesList";
             try
             {
                 var redisCategories = await _distributedCache.GetAsync(cacheKey);
-                if(redisCategories != null)
+                if (redisCategories != null)
                 {
-                    response.Data = JsonSerializer.Deserialize<IEnumerable<CategoriesDto>>(redisCategories);
-                } 
+                    response.Data = JsonSerializer.Deserialize<IEnumerable<CategoryDto>>(redisCategories);
+                }
                 else
                 {
                     var categories = await _unitOfWork.Categories.GetAll();
-                    response.Data = _mapper.Map<IEnumerable<CategoriesDto>>(categories);
+                    response.Data = _mapper.Map<IEnumerable<CategoryDto>>(categories);
                     if (response.Data != null)
                     {
                         var serializedCategories = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(response.Data));
@@ -44,7 +44,7 @@ namespace Pacagroup.Ecommerce.Application.UseCases
                         await _distributedCache.SetAsync(cacheKey, serializedCategories, options);
                     }
                 }
-                if(response.Data != null)
+                if (response.Data != null)
                 {
                     response.IsSuccess = true;
                     response.Message = "¡Consulta Exitosa!";

@@ -1,15 +1,15 @@
 ﻿using Dapper;
 using Pacagroup.Ecommerce.Domain.Entity;
 using Pacagroup.Ecommerce.Application.Interface.Persistence;
-using Pacagroup.Ecommerce.Persistence.Data;
+using Pacagroup.Ecommerce.Persistence.Contexts;
 using System.Data;
 
-namespace Pacagroup.Ecommerce.Persistence.Repository
+namespace Pacagroup.Ecommerce.Persistence.Repositories
 {
     public class CustomersRepository : ICustomersRepository
     {
         private readonly DapperContext _context;
-        public CustomersRepository(DapperContext context) 
+        public CustomersRepository(DapperContext context)
         {
             _context = context;
         }
@@ -29,7 +29,7 @@ namespace Pacagroup.Ecommerce.Persistence.Repository
             }
         }
 
-        public Customers Get(string customerId)
+        public Customer Get(string customerId)
         {
             using (var connection = _context.CreateConnection())
             {
@@ -37,25 +37,25 @@ namespace Pacagroup.Ecommerce.Persistence.Repository
                 var parameters = new DynamicParameters();
                 parameters.Add("CustomerID", customerId);
 
-                var customer = connection.QuerySingle<Customers>(query, parameters, commandType: CommandType.StoredProcedure);
+                var customer = connection.QuerySingle<Customer>(query, parameters, commandType: CommandType.StoredProcedure);
                 return customer;
             }
         }
 
-        public IEnumerable<Customers> GetAll()
+        public IEnumerable<Customer> GetAll()
         {
             using (var connection = _context.CreateConnection())
             {
                 var query = "CustomersList";
 
-                var customers = connection.Query<Customers>(query, commandType: CommandType.StoredProcedure);
+                var customers = connection.Query<Customer>(query, commandType: CommandType.StoredProcedure);
                 return customers;
             }
         }
 
-        public bool Insert(Customers customer)
+        public bool Insert(Customer customer)
         {
-            using(var connection = _context.CreateConnection())
+            using (var connection = _context.CreateConnection())
             {
                 var query = "CustomersInsert";
                 var parameters = new DynamicParameters();
@@ -76,7 +76,7 @@ namespace Pacagroup.Ecommerce.Persistence.Repository
             }
         }
 
-        public bool Update(Customers customer)
+        public bool Update(Customer customer)
         {
             using (var connection = _context.CreateConnection())
             {
@@ -99,7 +99,7 @@ namespace Pacagroup.Ecommerce.Persistence.Repository
             }
         }
 
-        public IEnumerable<Customers> GetAllWithPagination(int pageNumber, int pageSize)
+        public IEnumerable<Customer> GetAllWithPagination(int pageNumber, int pageSize)
         {
             using var connection = _context.CreateConnection();
             var query = "CustomersListWithPagination";
@@ -107,7 +107,7 @@ namespace Pacagroup.Ecommerce.Persistence.Repository
             parameters.Add("PageNumber", pageNumber);
             parameters.Add("PageSize", pageSize);
 
-            var customers = connection.Query<Customers>(query, param: parameters, commandType: CommandType.StoredProcedure);
+            var customers = connection.Query<Customer>(query, param: parameters, commandType: CommandType.StoredProcedure);
             return customers;
         }
 
@@ -136,18 +136,18 @@ namespace Pacagroup.Ecommerce.Persistence.Repository
             }
         }
 
-        public async Task<IEnumerable<Customers>> GetAllAsync()
+        public async Task<IEnumerable<Customer>> GetAllAsync()
         {
             using (var connection = _context.CreateConnection())
             {
                 var query = "CustomersList";
 
-                var customers = await connection.QueryAsync<Customers>(query, commandType: CommandType.StoredProcedure);
+                var customers = await connection.QueryAsync<Customer>(query, commandType: CommandType.StoredProcedure);
                 return customers;
             }
         }
 
-        public async Task<Customers> GetAsync(string customerId)
+        public async Task<Customer> GetAsync(string customerId)
         {
             using (var connection = _context.CreateConnection())
             {
@@ -155,12 +155,12 @@ namespace Pacagroup.Ecommerce.Persistence.Repository
                 var parameters = new DynamicParameters();
                 parameters.Add("CustomerID", customerId);
 
-                var customer = await connection.QuerySingleAsync<Customers>(query, parameters, commandType: CommandType.StoredProcedure);
+                var customer = await connection.QuerySingleAsync<Customer>(query, parameters, commandType: CommandType.StoredProcedure);
                 return customer;
             }
         }
 
-        public async Task<bool> InsertAsync(Customers customer)
+        public async Task<bool> InsertAsync(Customer customer)
         {
             using (var connection = _context.CreateConnection())
             {
@@ -183,7 +183,7 @@ namespace Pacagroup.Ecommerce.Persistence.Repository
             }
         }
 
-        public async Task<bool> UpdateAsync(Customers customer)
+        public async Task<bool> UpdateAsync(Customer customer)
         {
             using (var connection = _context.CreateConnection())
             {
@@ -206,7 +206,7 @@ namespace Pacagroup.Ecommerce.Persistence.Repository
             }
         }
 
-        public async Task<IEnumerable<Customers>> GetAllWithPaginationAsync(int pageNumber, int pageSize)
+        public async Task<IEnumerable<Customer>> GetAllWithPaginationAsync(int pageNumber, int pageSize)
         {
             using var connection = _context.CreateConnection();
             var query = "CustomersListWithPagination";
@@ -214,7 +214,7 @@ namespace Pacagroup.Ecommerce.Persistence.Repository
             parameters.Add("PageNumber", pageNumber);
             parameters.Add("PageSize", pageSize);
 
-            var customers = await connection.QueryAsync<Customers>(query, param: parameters, commandType: CommandType.StoredProcedure);
+            var customers = await connection.QueryAsync<Customer>(query, param: parameters, commandType: CommandType.StoredProcedure);
             return customers;
         }
 

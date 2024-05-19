@@ -5,7 +5,7 @@ using Pacagroup.Ecommerce.Application.Interface.UseCases;
 using Pacagroup.Ecommerce.Application.Validator;
 using Pacagroup.Ecommerce.CrossSectional.Common;
 
-namespace Pacagroup.Ecommerce.Application.UseCases
+namespace Pacagroup.Ecommerce.Application.UseCases.Users
 {
     public class UsersApplication : IUsersApplication
     {
@@ -19,15 +19,15 @@ namespace Pacagroup.Ecommerce.Application.UseCases
             _usersDtoValidator = usersDtoValidator;
         }
 
-        public Response<UsersDto> Authenticate(string userName, string password)
+        public Response<UserDto> Authenticate(string userName, string password)
         {
-            var response = new Response<UsersDto>();
-            var validation = _usersDtoValidator.Validate(new UsersDto
+            var response = new Response<UserDto>();
+            var validation = _usersDtoValidator.Validate(new UserDto
             {
                 UserName = userName,
                 Password = password
             });
-            if(!validation.IsValid)
+            if (!validation.IsValid)
             {
                 response.Message = "Parametros no pueden ser vacios.";
                 response.Errors = validation.Errors;
@@ -36,16 +36,16 @@ namespace Pacagroup.Ecommerce.Application.UseCases
             try
             {
                 var user = _unitOfWork.Users.Authenticate(userName, password);
-                response.Data = _mapper.Map<UsersDto>(user);
+                response.Data = _mapper.Map<UserDto>(user);
                 response.IsSuccess = true;
                 response.Message = "¡Autentificacion Exitosa!";
             }
-            catch(InvalidOperationException)
+            catch (InvalidOperationException)
             {
                 response.IsSuccess = true;
                 response.Message = "Usuario no existe.";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 response.Message = ex.Message;
             }

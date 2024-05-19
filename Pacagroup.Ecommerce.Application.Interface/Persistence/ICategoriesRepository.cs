@@ -4,6 +4,6 @@ namespace Pacagroup.Ecommerce.Application.Interface.Persistence
 {
     public interface ICategoriesRepository
     {
-        Task<IEnumerable<Categories>> GetAll();
+        Task<IEnumerable<Category>> GetAll();
     }
 }

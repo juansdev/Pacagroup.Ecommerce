@@ -20,7 +20,7 @@ namespace Pacagroup.Ecommerce.Services.WebApi.Controllers.v1
         #region Sync Methods
 
         [HttpPost("Insert")]
-        public IActionResult Insert(CustomersDto customersDto)
+        public IActionResult Insert(CustomerDto customersDto)
         {
             if (customersDto == null)
             {
@@ -32,7 +32,7 @@ namespace Pacagroup.Ecommerce.Services.WebApi.Controllers.v1
         }
 
         [HttpPut("Update")]
-        public IActionResult Update(CustomersDto customersDto)
+        public IActionResult Update(CustomerDto customersDto)
         {
             if (customersDto == null)
             {
@@ -80,7 +80,7 @@ namespace Pacagroup.Ecommerce.Services.WebApi.Controllers.v1
         #region
 
         [HttpPost("InsertAsync")]
-        public async Task<IActionResult> InsertAsync(CustomersDto customersDto)
+        public async Task<IActionResult> InsertAsync(CustomerDto customersDto)
         {
             if (customersDto == null)
             {
@@ -92,7 +92,7 @@ namespace Pacagroup.Ecommerce.Services.WebApi.Controllers.v1
         }
 
         [HttpPut("UpdateAsync")]
-        public async Task<IActionResult> UpdateAsync(CustomersDto customersDto)
+        public async Task<IActionResult> UpdateAsync(CustomerDto customersDto)
         {
             if (customersDto == null)
             {

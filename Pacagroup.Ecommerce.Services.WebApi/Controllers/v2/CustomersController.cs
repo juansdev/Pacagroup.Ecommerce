@@ -20,7 +20,7 @@ namespace Pacagroup.Ecommerce.Services.WebApi.Controllers.v2
         #region Sync Methods
 
         [HttpPost("Insert")]
-        public IActionResult Insert([FromBody] CustomersDto customersDto)
+        public IActionResult Insert([FromBody] CustomerDto customersDto)
         {
             if (customersDto == null)
             {
@@ -32,7 +32,7 @@ namespace Pacagroup.Ecommerce.Services.WebApi.Controllers.v2
         }
 
         [HttpPut("Update/{customerId}")]
-        public IActionResult Update(string customerId, [FromBody] CustomersDto customersDto)
+        public IActionResult Update(string customerId, [FromBody] CustomerDto customersDto)
         {
             var customerDto = _customersApplication.Get(customerId);
             if (customerDto.Data == null) return NotFound(customerDto.Message);
@@ -87,7 +87,7 @@ namespace Pacagroup.Ecommerce.Services.WebApi.Controllers.v2
         #region Async Methods
 
         [HttpPost("InsertAsync")]
-        public async Task<IActionResult> InsertAsync(CustomersDto customersDto)
+        public async Task<IActionResult> InsertAsync(CustomerDto customersDto)
         {
             if (customersDto == null)
             {
@@ -99,7 +99,7 @@ namespace Pacagroup.Ecommerce.Services.WebApi.Controllers.v2
         }
 
         [HttpPut("UpdateAsync/{customerId}")]
-        public async Task<IActionResult> UpdateAsync(string customerId, [FromBody]CustomersDto customersDto)
+        public async Task<IActionResult> UpdateAsync(string customerId, [FromBody]CustomerDto customersDto)
         {
             var customerDto = _customersApplication.Get(customerId);
             if (customerDto.Data == null) return NotFound(customerDto.Message);

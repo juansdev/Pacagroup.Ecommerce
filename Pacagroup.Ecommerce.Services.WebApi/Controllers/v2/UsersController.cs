@@ -27,7 +27,7 @@ namespace Pacagroup.Ecommerce.Services.WebApi.Controllers.v2
 
         [AllowAnonymous]
         [HttpPost("Authenticate")]
-        public IActionResult Authenticate([FromBody] UsersDto authDto)
+        public IActionResult Authenticate([FromBody] UserDto authDto)
         {
             var response = _usersApplication.Authenticate(authDto.UserName, authDto.Password);
             if (response.IsSuccess)
