@@ -118,6 +118,30 @@ namespace Pacagroup.Ecommerce.Application.UseCases.Discounts
             return response;
         }
 
+        public async Task<ResponsePagination<IEnumerable<DiscountDto>>> GetAllWithPagination(int pageNumber, int pageSize)
+        {
+            var response = new ResponsePagination<IEnumerable<DiscountDto>>();
+            try
+            {
+                var count = await _unitOfWork.Discounts.CountAsync();
+                var discounts = await _unitOfWork.Discounts.GetAllWithPaginationAsync(pageNumber, pageSize);
+                response.Data = _mapper.Map<IEnumerable<DiscountDto>>(discounts);
+                if (response.Data != null)
+                {
+                    response.PageNumber = pageNumber;
+                    response.TotalPages = (int)Math.Ceiling(count / (double)pageSize);
+                    response.TotalCount = count;
+                    response.IsSuccess = true;
+                    response.Message = "¡Obtención Paginada Exitosa!";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Message = ex.Message;
+            }
+            return response;
+        }
+
         public async Task<Response<bool>> Update(DiscountDto discountDto, CancellationToken cancellationToken = default)
         {
             var response = new Response<bool>();
