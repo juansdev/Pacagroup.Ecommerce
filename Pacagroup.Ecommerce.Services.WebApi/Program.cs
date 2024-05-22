@@ -37,15 +37,23 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
+    var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
         // Build a swagger endpoint for each discovered API version
-        var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API Ecommerce V1");
+
         foreach (var description in provider.ApiVersionDescriptions)
         {
             c.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
+        }
+    });
+    app.UseReDoc(options =>
+    {
+        foreach (var description in provider.ApiVersionDescriptions)
+        {
+            options.DocumentTitle = "Pacagroup Technology Services API Market";
+            options.SpecUrl = $"/swagger/{description.GroupName}/swagger.json";
         }
     });
 }
