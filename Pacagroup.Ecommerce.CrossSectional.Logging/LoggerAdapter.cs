@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
 using Pacagroup.Ecommerce.CrossSectional.Common;
-using WatchDog;
 
 namespace Pacagroup.Ecommerce.CrossSectional.Logging
 {
@@ -14,19 +13,16 @@ namespace Pacagroup.Ecommerce.CrossSectional.Logging
         public void LogError(string message, params object[] args)
         {
             _logger.LogError(message, args);
-            WatchLogger.Log(message);
         }
 
         public void LogInformation(string message, params object[] args)
         {
             _logger.LogInformation(message, args);
-            WatchLogger.Log(message);
         }
 
         public void LogWarning(string message, params object[] args)
         {
             _logger.LogWarning(message, args);
-            WatchLogger.Log(message);
         }
     }
 }
