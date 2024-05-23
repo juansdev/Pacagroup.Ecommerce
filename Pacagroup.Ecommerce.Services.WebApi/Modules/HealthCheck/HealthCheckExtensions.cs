@@ -11,7 +11,7 @@
             services.AddHealthChecksUI(settings =>
             {
                 settings.AddHealthCheckEndpoint("Pacagroup.Ecommerce Health Status - Production", configuration["Config:ApiHost"]+"/health-status");
-            }).AddInMemoryStorage();
+            }).AddSqlServerStorage(configuration.GetConnectionString("NorthwindConnection"));
             return services;
         }
     }
