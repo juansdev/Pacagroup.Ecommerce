@@ -13,7 +13,7 @@ namespace Pacagroup.Ecommerce.Persistence.Repositories
         {
             _context = context;
         }
-        public User Authenticate(string userName, string password)
+        public async Task<User> Authenticate(string userName, string password)
         {
             using (var connection = _context.CreateConnection())
             {
@@ -21,7 +21,8 @@ namespace Pacagroup.Ecommerce.Persistence.Repositories
                 var parameters = new DynamicParameters();
                 parameters.Add("UserName", userName);
                 parameters.Add("Password", password);
-                var user = connection.QuerySingle<User>(query, parameters, commandType: CommandType.StoredProcedure);
+
+                var user = await connection.QuerySingleOrDefaultAsync<User>(query, param: parameters, commandType: CommandType.StoredProcedure);
                 return user;
             }
         }
