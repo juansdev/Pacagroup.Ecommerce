@@ -21,6 +21,7 @@ namespace Pacagroup.Ecommerce.Application.UseCases
                 cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly());
                 cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(LoggingBehaviour<,>));
                 cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
+                cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<ICustomersApplication, CustomersApplication>();
