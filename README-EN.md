@@ -28,7 +28,6 @@
 - [ Getting Started](#-getting-started)
   - [ Installation](#-installation)
   - [ Usage](#-usage)
-  - [ Tests](#-tests)
 </details>
 <hr>
 
@@ -47,7 +46,6 @@ The `Pacagroup.Ecommerce` project is an open-source e-commerce software solution
 | 📄 | Documentation    | Informative commit messages, detailed documentation within the source code itself, and specific README.md files for each submodule, providing clear instructions on how to build, integrate, and use each component effectively. |
 | 🔌 | Integrations      | External dependencies include ASP.NET Core for building web applications and Docker to containerize the solution for improved deployment consistency. |
 | 🧩 | Modularity        | The codebase is highly modular with separate projects for application layers, data transfer objects, and domain entities. Each module has its own responsibility, promoting maintainability and scalability. |
-| 🧪 | Testing          | Uses .NET Core's built-in xUnit test framework along with Moq mocking library to create comprehensive tests covering all application logic. |
 | ⚡️  | Performance       | Well-optimized for efficient execution using asynchronous processing, proper memory management, and caching techniques. Load testing not available in the provided information. |
 | 🛡️ | Security          | Employs secure communication between components using HTTPS and utilizes .NET Core's built-in security features such as dependency injection for data access control and protection. |
 | 📦 | Dependencies      | External libraries include ASP.NET Core, Docker, .NET 7.0 SDK, and several common .NET libraries such as System, Microsoft.EntityFrameworkCore, Json.NET, and others for common functions. |
@@ -649,17 +647,6 @@ The `Pacagroup.Ecommerce` project is an open-source e-commerce software solution
 
 </details>
 
-<details closed><summary>Pacagroup.Ecommerce.Application.Test</summary>
-
-| File                                                                                                                                                                                        | Summary                                                                                                                                                                                                                                                                                                                                                       |
-| ---                                                                                                                                                                                         | ---                                                                                                                                                                                                                                                                                                                                                           |
-| [GlobalUsings.cs](https://github.com/juansdev/Pacagroup.Ecommerce/blob/master/Pacagroup.Ecommerce.Application.Test/GlobalUsings.cs)                                                         | Initiates unit tests within the Pacagroup Ecommerce Application Test folder, leveraging Microsofts UnitTesting framework, ensuring accurate and consistent testing results across various modules within the application architecture.                                                                                                                        |
-| [CustomWebApplicationFactory.cs](https://github.com/juansdev/Pacagroup.Ecommerce/blob/master/Pacagroup.Ecommerce.Application.Test/CustomWebApplicationFactory.cs)                           | Customizes ASP.NET Core application environment for testing purposes, integrating appsettings.json and environment variables in the test configuration. This setup facilitates consistent testing across environments while utilizing the WebApplicationFactory provided by Microsoft.                                                                        |
-| [appsettings.json](https://github.com/juansdev/Pacagroup.Ecommerce/blob/master/Pacagroup.Ecommerce.Application.Test/appsettings.json)                                                       | Establishes logging level for information, warning for Microsoft.AspNetCore logs.-Allows all hosts access for development.-Sets NorthwindConnection as the database connection string.-Specifies CORS origin (localhost:7036) to control cross-origin resource sharing during tests.-Includes health checks API configuration to facilitate test diagnostics. |
-| [Pacagroup.Ecommerce.Application.Test.csproj](https://github.com/juansdev/Pacagroup.Ecommerce/blob/master/Pacagroup.Ecommerce.Application.Test/Pacagroup.Ecommerce.Application.Test.csproj) | Tests this eCommerce application by validating its functionalities and ensuring code quality via automated tests, using libraries like MSTest. It integrates with the main WebApi service, runs under.NET 8.0, and gathers coverage data for analysis.                                                                                                        |
-
-</details>
-
 ---
 
 ##  Getting Started
@@ -688,15 +675,20 @@ The `Pacagroup.Ecommerce` project is an open-source e-commerce software solution
 > ```console
 > $ dotnet build
 > ```
+>
+> 4. Edit the connection to your Microsoft SQL Server database in the "NorthwindConnection" key located in the Service/Web.API/appsettings.Development.json file.
+>
+> 5. Activate the Microsoft SQL Server.
+>
+> 6. Edit the connection to your Redis server in the "RedisConnection" key located in the Service/Web.API/appsettings.Development.json file.
+>
+> 7. Activate the Redis server.
 
 ###  Usage
 
 <h4>From <code>source</code></h4>
 
-> Run Pacagroup.Ecommerce using the command below:
-> ```console
-> $ dotnet run
-> ```
+> Deploy the project using the HTTPS launch profile.
 
 ###  Tests
 

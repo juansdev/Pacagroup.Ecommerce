@@ -28,7 +28,6 @@
 - [ Primeros Pasos](#-primeros-pasos)
     - [ Instalación](#-instalación)
     - [ Uso](#-uso)
-    - [ Pruebas](#-pruebas)
 </details>
 <hr>
 
@@ -36,7 +35,7 @@
 
 El proyecto `Pacagroup.Ecommerce` es una solución de software de comercio electrónico de código abierto, diseñada para crear experiencias de compra en línea robustas y escalables. Su enfoque principal es proporcionar una plataforma versátil y fácil de usar, respaldada por una estructura bien arquitecturada. El código abarca varias capas de la arquitectura de la aplicación, como se muestra en archivos como `Pacagroup.Ecommerce.sln`, que alberga Objetos de Transferencia de Datos (DTOs) para una comunicación eficiente entre diferentes componentes. DTOs clave como `CategoryDto`, `CustomerDto`, `DiscountDto` y `UserDto` están meticulosamente definidos, garantizando un intercambio de datos fluido entre las capas de presentación, aplicación, infraestructura y posiblemente otras capas adicionales.
 
-El proyecto aprovecha las tecnologías de contenedorización al construir y desplegar imágenes Docker a través del `Dockerfile`. Este enfoque garantiza entornos consistentes, minimizando problemas potenciales de dependencias en los entornos de desarrollo, pruebas y producción. Con estas funcionalidades clave, el proyecto `Pacagroup.Ecommerce` ofrece una valiosa propuesta al promover la legibilidad del código, la mantenibilidad, la extensibilidad y la escalabilidad, permitiendo así una rápida adaptación a los requisitos de comercio electrónico en constante evolución.
+El proyecto aprovecha las tecnologías de contenedorización al construir y desplegar imágenes Docker a través del `Dockerfile`. Este enfoque garantiza entornos consistentes, minimizando problemas potenciales de dependencias en los entornos de desarrollo y producción. Con estas funcionalidades clave, el proyecto `Pacagroup.Ecommerce` ofrece una valiosa propuesta al promover la legibilidad del código, la mantenibilidad, la extensibilidad y la escalabilidad, permitiendo así una rápida adaptación a los requisitos de comercio electrónico en constante evolución.
 
 ---
 
@@ -49,7 +48,6 @@ El proyecto aprovecha las tecnologías de contenedorización al construir y desp
 | 📄 | Documentación     | Mensajes de confirmación informativos, documentación detallada dentro del propio código fuente y archivos README.md específicos para cada submódulo, proporcionando instrucciones claras sobre cómo construir, integrar y usar cada componente de manera efectiva. |
 | 🔌 | Integraciones     | Las dependencias externas incluyen ASP.NET Core para construir aplicaciones web y Docker para contenerizar la solución, mejorando la consistencia del despliegue. |
 | 🧩 | Modularidad       | La base de código es altamente modular con proyectos separados para capas de aplicación, objetos de transferencia de datos y entidades de dominio. Cada módulo tiene su propia responsabilidad, promoviendo la mantenibilidad y escalabilidad. |
-| 🧪 | Pruebas           | Utiliza el marco de pruebas xUnit integrado en .NET Core junto con la biblioteca de simulación Moq para crear pruebas exhaustivas que cubren toda la lógica de la aplicación. |
 | ⚡️ | Rendimiento       | Bien optimizado para una ejecución eficiente utilizando procesamiento asíncrono, gestión adecuada de la memoria y técnicas de caché. La prueba de carga no está disponible en la información proporcionada. |
 | 🛡️ | Seguridad         | Emplea comunicación segura entre componentes utilizando HTTPS y utiliza las características de seguridad integradas en .NET Core, como la inyección de dependencias para el control de acceso a datos y la protección. |
 | 📦 | Dependencias      | Las bibliotecas externas incluyen ASP.NET Core, Docker, SDK de .NET 7.0 y varias bibliotecas comunes de .NET como System, Microsoft.EntityFrameworkCore, Json.NET, entre otras para funciones comunes. |
@@ -651,17 +649,6 @@ El proyecto aprovecha las tecnologías de contenedorización al construir y desp
 
 </details>
 
-<details closed><summary>Pacagroup.Ecommerce.Application.Test</summary>
-
-| Archivo | Resumen |
-| --- | --- |
-| [GlobalUsings.cs](https://github.com/juansdev/Pacagroup.Ecommerce/blob/master/Pacagroup.Ecommerce.Application.Test/GlobalUsings.cs) | Inicia pruebas unitarias dentro de la carpeta de Pruebas de Aplicación de Pacagroup Ecommerce, aprovechando el marco de pruebas unitarias de Microsoft, asegurando resultados de pruebas precisos y consistentes en varios módulos dentro de la arquitectura de la aplicación. |
-| [CustomWebApplicationFactory.cs](https://github.com/juansdev/Pacagroup.Ecommerce/blob/master/Pacagroup.Ecommerce.Application.Test/CustomWebApplicationFactory.cs) | Personaliza el entorno de la aplicación ASP.NET Core para propósitos de prueba, integrando appsettings.json y variables de entorno en la configuración de la prueba. Esta configuración facilita pruebas consistentes en diferentes entornos mientras utiliza el WebApplicationFactory proporcionado por Microsoft. |
-| [appsettings.json](https://github.com/juansdev/Pacagroup.Ecommerce/blob/master/Pacagroup.Ecommerce.Application.Test/appsettings.json) | Establece el nivel de registro para información, advertencia para registros de Microsoft.AspNetCore.-Permite el acceso a todos los hosts para desarrollo.-Establece NorthwindConnection como la cadena de conexión de la base de datos.-Especifica el origen CORS (localhost:7036) para controlar el uso compartido de recursos de origen cruzado durante las pruebas.-Incluye la configuración de la API de comprobación de salud para facilitar diagnósticos de prueba. |
-| [Pacagroup.Ecommerce.Application.Test.csproj](https://github.com/juansdev/Pacagroup.Ecommerce/blob/master/Pacagroup.Ecommerce.Application.Test/Pacagroup.Ecommerce.Application.Test.csproj) | Prueba esta aplicación de comercio electrónico validando sus funcionalidades y asegurando la calidad del código mediante pruebas automatizadas, utilizando bibliotecas como MSTest. Se integra con el servicio principal de WebApi, se ejecuta bajo.NET 8.0 y recopila datos de cobertura para su análisis. |
-
-</details>
-
 ---
 
 ##  Primeros Pasos
@@ -690,19 +677,24 @@ El proyecto aprovecha las tecnologías de contenedorización al construir y desp
 > ```console
 > $ dotnet build
 > ```
+>
+> 4. Edite la conexión a su BD de Microsoft SQL Server en la llave "NorthwindConnection" alojada en el archivo Service/Web.API/appsettings.Development.json.
+>
+> 5. Active el Servidor Microsoft SQL.
+>
+> 6. Edite la conexión a su Redis en la llave "RedisConnection" alojada en el archivo Service/Web.API/appsettings.Development.json.
+>
+> 5. Active el Servidor de Redis.
 
 ###  Uso
 
 <h4>Desde <code>source</code></h4>
 
-> Despliega Pacagroup.Ecommerce usando el comando de abajo:
-> ```console
-> $ dotnet run
-> ```
+> Despliega el proyecto mediante el perfil de lanzamiento HTTPS.
 
 ###  Pruebas
 
-> Ejecuta el conjunto de pruebas utilizando el siguiente comando:
+> Ejecuta la suite de pruebas utilizando el siguiente comando:
 > ```console
 > $ dotnet test
 > ```
