@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://simpleicons.org/icons/dotenv.svg" style="filter:invert(1);" width="100" alt="project-logo">
+  <img src="https://simpleicons.org/icons/dotnet.svg" style="filter:invert(1);" width="100" alt="project-logo">
 </p>
 <p align="center">
     <h1 align="center">PACAGROUP ECOMMERCE</h1>
@@ -8,7 +8,7 @@
     <em>¡Bienvenido a Pacagroup Ecommerce! Pacagroup Ecommerce permite un comercio electrónico eficiente y mantenible con el uso de DTOs (Objetos de Transferencia de Datos) claros y el despliegue optimizado de contenedores. ¡El poder de .NET 7.0 al alcance de tus manos! Construir, Innovar y Tener Éxito — Juntos en el Mercado Digital Mundial.</em>
 </p>
 <p align="center">
-	<img src="https://img.shields.io/github/license/juansdev/DDD?style=default&logoColor=white&color=0080ff" alt="license">
+	<img src="https://img.shields.io/github/license/juansdev/Pacagroup.Ecommerce?style=default&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
 	<img src="https://img.shields.io/github/last-commit/juansdev/Pacagroup.Ecommerce?style=default&logo=git&logoColor=white&color=0080ff" alt="last-commit">
 	<img src="https://img.shields.io/github/languages/top/juansdev/Pacagroup.Ecommerce?style=default&color=0080ff" alt="repo-top-language">
 	<img src="https://img.shields.io/github/languages/count/juansdev/Pacagroup.Ecommerce?style=default&color=0080ff" alt="repo-language-count">
@@ -548,8 +548,6 @@ El proyecto aprovecha las tecnologías de contenedorización al construir y desp
 <details closed><summary>Pacagroup.Ecommerce.Application.Main.Customers.Queries.GetAllCustomerQuery</summary>
 
 | Archivo | Resumen |
-
-
 | --- | --- |
 | [GetAllCustomerHandler.cs](https://github.com/juansdev/Pacagroup.Ecommerce/blob/master/Pacagroup.Ecommerce.Application.Main/Customers/Queries/GetAllCustomerQuery/GetAllCustomerHandler.cs) | Maneja las consultas para recuperar todos los detalles de los clientes mapeando datos desde la base de datos utilizando AutoMapper y MediatR en el caso de uso del cliente de la aplicación Pacagroup.Ecommerce. La clase GetAllCustomerHandler interactúa con el servicio IUnitOfWork, asegurando un acceso a datos consistente y transaccional dentro de la capa de Persistencia. |
 | [GetAllCustomerQuery.cs](https://github.com/juansdev/Pacagroup.Ecommerce/blob/master/Pacagroup.Ecommerce.Application.Main/Customers/Queries/GetAllCustomerQuery/GetAllCustomerQuery.cs) | GetAllCustomerQuery.cs dentro de la aplicación principal de Pacagroup. El patrón MediatR facilita una consulta asincrónica eficiente para recuperar una colección de objetos CustomerDto del dominio de Customers. Esta interacción mejora la usabilidad y adaptabilidad del módulo de gestión de clientes en la plataforma de comercio electrónico Pacagroup. |

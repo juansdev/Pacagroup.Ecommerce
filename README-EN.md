@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://simpleicons.org/icons/dotenv.svg" style="filter:invert(1);" width="100" alt="project-logo">
+  <img src="https://simpleicons.org/icons/dotnet.svg" style="filter:invert(1);" width="100" alt="project-logo">
 </p>
 <p align="center">
     <h1 align="center">PACAGROUP ECOMMERCE</h1>
