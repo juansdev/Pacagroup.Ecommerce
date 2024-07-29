@@ -683,6 +683,8 @@ The `Pacagroup.Ecommerce` project is an open-source e-commerce software solution
 > 6. Edit the connection to your Redis server in the "RedisConnection" key located in the Service/Web.API/appsettings.Development.json file.
 >
 > 7. Activate the Redis server.
+>
+> 8. Run the migrations using the command "update-database"
 
 ###  Usage
 

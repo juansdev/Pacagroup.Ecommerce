@@ -684,7 +684,9 @@ El proyecto aprovecha las tecnologías de contenedorización al construir y desp
 >
 > 6. Edite la conexión a su Redis en la llave "RedisConnection" alojada en el archivo Service/Web.API/appsettings.Development.json.
 >
-> 5. Active el Servidor de Redis.
+> 7. Active el Servidor de Redis.
+>
+> 8. Ejecutar las migraciones mediante el comando "update-database"
 
 ###  Uso
 
